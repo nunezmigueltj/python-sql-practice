@@ -4,14 +4,14 @@
 
 This project focuses on practicing SQL Server through a relational database designed to manage and analyze Pokémon card sales.
 
-The goal is to strengthen SQL skills through practical exercises involving database design, table relationships, data retrieval, aggregations, and analytical queries.
+The goal is to strengthen SQL skills through practical exercises involving database design, table relationships, data retrieval, aggregations, subqueries, and analytical queries.
 
 ## Database Structure
 
 The database contains three main tables:
 
-- **Productos:** Stores Pokémon card information.
-- **Plataformas:** Stores sales platforms.
+- **Productos:** Stores Pokémon card information, including Pokémon name, collection, and card number.
+- **Plataformas:** Stores the sales platforms.
 - **Ventas:** Stores sales transactions, including product, platform, date, price, and quantity.
 
 ### Relationships
@@ -34,7 +34,11 @@ The database contains three main tables:
 - GROUP BY and aggregate functions.
 - HAVING clauses.
 - NULL handling.
-- Data analysis through SQL queries.
+- Scalar and multi-row subqueries.
+- Common Table Expressions (CTEs).
+- Duplicate record identification.
+- Query debugging and error detection.
+- Sales analysis and revenue calculations.
 
 ## Project Structure
 
@@ -54,19 +58,19 @@ sales_analysis/
 
 **Status: In Progress**
 
-Currently completed:
+Completed:
+
 - Relational database design.
 - Table creation and relationships.
 - Sample data insertion.
 - JOIN operations.
 - GROUP BY and aggregate functions.
 - HAVING clauses.
-
-Upcoming topics:
 - Subqueries.
 - Common Table Expressions (CTEs).
-- Query debugging and error detection.
+- NULL handling.
 - Duplicate record identification.
+- Query debugging and error detection.
 
 ## Purpose
 

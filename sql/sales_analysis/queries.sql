@@ -81,6 +81,99 @@ HAVING
 	SUM(V.PrecioMXN * V.Cantidad) > 1000
 
 
--- DAY 2: SQL PRACTICE
--- Completed: JOIN, GROUP BY, HAVING
--- Pending: Subqueries, CTE and error detection
+-- Ejercicio 7: Get all sales that price is > than the AVG of all sales
+SELECT
+	V.VentaID,
+	P.Pokemon,
+	P.NumeroCarta,
+	V.PrecioMXN
+FROM Ventas AS V
+INNER JOIN
+	Productos AS P
+ON P.ProductoID = V.ProductoID
+WHERE V.PrecioMXN > (
+	SELECT
+		AVG(VE.PrecioMXN) AS AVERAGE
+	FROM
+		Ventas AS VE
+);
+
+-- Ejercicio 8: Get all pokemon that have 1 or more sale with price > 1000
+SELECT
+	P.Pokemon
+FROM Ventas AS V
+INNER JOIN
+	Productos AS P
+ON P.ProductoID = V.ProductoID
+WHERE V.PrecioMXN > 1000
+GROUP BY P.Pokemon
+
+SELECT 
+	*
+FROM 
+	Productos AS P
+WHERE 
+	P.ProductoID IN(
+		SELECT
+			V.ProductoID
+		FROM 
+			Ventas AS V
+		WHERE
+			V.PrecioMXN > 1000
+	)
+
+-- Ejercicio 9: USING CTE GET TOTAL_INCOME OF ALL POKEMON INCLUDING THOSE THAT DONT HAVE SALES. THEN WITH THE RESULT SHOW ONLY THE ONES THAT HAVE TOTAL_INCOME > 1000
+WITH VentasPorProducto AS (
+	SELECT
+		P.Pokemon,
+		ISNULL(SUM(V.PRECIOMXN * V.Cantidad), 0) AS INGRESO_TOTAL
+	FROM
+		Productos AS P
+	LEFT JOIN 
+		VENTAS AS V
+	ON V.ProductoID = P.ProductoID
+	GROUP BY
+		P.Pokemon, P.ProductoID
+)
+
+SELECT 
+	VP.*
+FROM 
+	VentasPorProducto AS VP
+WHERE
+	VP.INGRESO_TOTAL > 1000
+
+
+-- Ejercicio 10: DETECT THE ERROR
+SELECT
+    p.Pokemon,
+    SUM(v.PrecioMXN) AS TotalVentas
+FROM Productos p
+INNER JOIN Ventas v
+    ON p.ProductoID = v.VentaID
+GROUP BY p.Pokemon;
+
+-- Answer: The inner join connection is not the same values
+
+-- Ejercicio 11: DETECT THE ERROR
+SELECT
+    ProductoID,
+    SUM(PrecioMXN) AS TotalVentas
+FROM Ventas
+GROUP BY ProductoID
+HAVING TotalVentas > 1000;
+
+-- Answer: In the having clause, it is using a column name that is not valid.
+
+-- Ejercicio 12: Detect duplicate sale
+SELECT
+	V.[ProductoID],
+	V.PlataformaID,
+	V.FechaVenta,
+	V.PrecioMXN,
+	V.Cantidad, 
+	COUNT(*) AS REPETICIONES
+FROM
+	VENTAS AS V
+GROUP BY V.[ProductoID],V.PlataformaID,V.FechaVenta,V.PrecioMXN,V.Cantidad
+HAVING COUNT(*) > 1
