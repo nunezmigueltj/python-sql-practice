@@ -1,17 +1,17 @@
-# SQL Sales Analysis
+# SQL Server - Sales Analysis
 
 ## Overview
 
-This project focuses on practicing SQL Server through a relational database designed to manage and analyze Pokémon card sales.
+This project implements a relational database using Microsoft SQL Server to manage and analyze Pokémon card sales.
 
-The goal is to strengthen SQL skills through practical exercises involving database design, table relationships, data retrieval, aggregations, subqueries, and analytical queries.
+It focuses on relational database design, data retrieval, complex SQL queries, data aggregation, and analytical operations to extract meaningful business insights from sales data.
 
 ## Database Structure
 
-The database contains three main tables:
+The database consists of three main tables:
 
-- **Productos:** Stores Pokémon card information, including Pokémon name, collection, and card number.
-- **Plataformas:** Stores the sales platforms.
+- **Productos:** Stores product information, including Pokémon name, collection, and card number.
+- **Plataformas:** Stores sales platform information.
 - **Ventas:** Stores sales transactions, including product, platform, date, price, and quantity.
 
 ### Relationships
@@ -26,19 +26,21 @@ The database contains three main tables:
 - SQL (T-SQL)
 - SQL Server Management Studio (SSMS)
 
-## Topics Covered
+## Technical Implementation
 
-- Database creation and relational modeling.
+The project covers the following areas:
+
+- Relational database design and modeling.
 - Primary Keys and Foreign Keys.
-- INNER JOIN and LEFT JOIN.
+- INNER JOIN and LEFT JOIN operations.
 - GROUP BY and aggregate functions.
 - HAVING clauses.
-- NULL handling.
+- NULL handling and data validation.
 - Scalar and multi-row subqueries.
 - Common Table Expressions (CTEs).
 - Duplicate record identification.
 - Query debugging and error detection.
-- Sales analysis and revenue calculations.
+- Revenue calculations and sales analysis.
 
 ## Project Structure
 
@@ -50,28 +52,28 @@ sales_analysis/
 └── README.md
 ```
 
-- `setup.sql`: Database tables, constraints, and sample data.
-- `queries.sql`: SQL exercises and analytical queries.
+- `setup.sql`: Database creation, table definitions, constraints, and sample data.
+- `queries.sql`: SQL queries covering data retrieval, relationships, aggregations, and analytical operations.
 - `README.md`: Project documentation.
 
-## Progress
+## Project Status
 
 **Status: In Progress**
 
-Completed:
+Currently implemented:
 
-- Relational database design.
+- Relational database structure.
 - Table creation and relationships.
 - Sample data insertion.
 - JOIN operations.
-- GROUP BY and aggregate functions.
-- HAVING clauses.
-- Subqueries.
-- Common Table Expressions (CTEs).
-- NULL handling.
-- Duplicate record identification.
-- Query debugging and error detection.
+- Data aggregation and grouping.
+- Filtering aggregated results with HAVING.
+- Subqueries and CTEs.
+- Duplicate record detection.
+- Sales and revenue analysis.
 
 ## Purpose
 
-This project is part of my continuous learning process to strengthen my SQL skills and develop practical experience in database management, backend development, and data analysis.
+This project demonstrates practical SQL Server capabilities through relational database modeling and data analysis scenarios.
+
+It also serves as a foundation for further work involving database development, backend systems, and data analytics.
